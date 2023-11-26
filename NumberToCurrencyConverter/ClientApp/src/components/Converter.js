@@ -55,7 +55,7 @@ export class Converter extends Component {
       let result, textColor; 
       if (response.status === 200)
       {
-        result = data.wordRepresentation;
+        result = data.dollar;
         textColor = "black";
       }
       else if (response.status === 422)

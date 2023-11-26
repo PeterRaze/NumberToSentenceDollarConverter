@@ -2,6 +2,6 @@
 {
     public class Currency
     {
-        public string WordRepresentation { get; set; } = "";
+        public string Dollar { get; set; } = "";
     }
 }

@@ -16,7 +16,7 @@ namespace NumberToCurrencyConverter.Controllers
             {
                 Currency currency = new Currency()
                 {
-                    WordRepresentation = Converter.ConvertNumberToSentece(input)
+                    Dollar = Converter.ConvertNumberToSentece(input)
                 };
 
                 return Ok(currency);
