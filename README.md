@@ -1,4 +1,4 @@
-Number To Currency Convertor
+Number To Currency Converter
 ===
 
 **Requirements**:
