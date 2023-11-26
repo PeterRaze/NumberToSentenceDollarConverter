@@ -43,11 +43,10 @@ namespace NumberToCurrencyConverter.Server.Core
          * Use this dict to add support to other large conventions such as Billion, Trillion, etc...
          * It is just necessary to add the name convention and the equivalent number of zeros.
          */
-
         private static readonly IReadOnlyDictionary<int, string> largeNameConventionBasedOnZeros = new Dictionary<int, string>()
         {
             { 3, "thousand" },
-            { 6, "million" }
+            { 6, "million" },
         };
 
         private const string _regexPattern = @"^[1-9]+([0-9]+)?(,{1}[0-9]{1,2}?|[0-9]+)$|^0,[0-9]{1,2}$|^[0-9]$";
@@ -168,7 +167,7 @@ namespace NumberToCurrencyConverter.Server.Core
             string prefix = $"{ConvertOne(number.First().ToString())} hundred";
             string sufix = $"{ConvertTen(number[index..])}";
 
-            sufix = !string.IsNullOrEmpty(sufix) ? sufix.Insert(0, " ") : sufix;
+            sufix = (!string.IsNullOrEmpty(sufix) && sufix.First() != ' ') ? sufix.Insert(0, " ") : sufix;
 
             return prefix + sufix;
         }
@@ -195,7 +194,7 @@ namespace NumberToCurrencyConverter.Server.Core
                 sufix = $"{ConvertHundred(number[index..])}";
             }
 
-            sufix = !string.IsNullOrEmpty(sufix) ? sufix.Insert(0, " ") : sufix;
+            sufix = (!string.IsNullOrEmpty(sufix) && sufix.First() != ' ') ? sufix.Insert(0, " ") : sufix;
 
             return prefix + sufix;
         }
